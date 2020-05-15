@@ -1,0 +1,23 @@
+
+.desactivado{
+    text-decoration: line-through;
+
+}
+
+.desactivado input{
+    pointer-events: none;
+    background-color: #ffeeba;
+    color: #ffeeba;
+}
+.desactivado button{
+    pointer-events: none;
+}
+
+.completo input{
+    pointer-events: none;
+  
+}
+
+.align{
+    text-align: center;
+}

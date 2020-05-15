@@ -1,0 +1,23 @@
+<div class="mt-5 container">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center border-bottom">
+      <h1>GESTIÓN DE EVENTOS</h1>
+    </div>
+    <div class="row">
+      <div class="col-12  mt-3">
+        <h2 class="ml-3">NUEVO EVENTO</h2>
+        </div>
+    </div>
+    <!-- INPUTS-->
+    <app-eventos (enviarEvento)="agregarEvento($event)" ></app-eventos>
+    <!--Fin Inputs-->
+    <!--Lista eventos-->
+    
+    <div class="col-12">
+      <app-listaeventos (participantes)="sumarParticipantes($event)" (modificar)="modificar($event)" (eliminarEvento)="eliminarEvento($event)" [listaEventos]="arrEventos"></app-listaeventos>
+    </div>
+      
+    
+    <!--Lista eventos-->
+  </div>
+</div>
