@@ -1,3 +1,3 @@
 # AppEventos
 
-Proyecti de Eventos creados con ##@angularCLI
+Proyecti de Eventos creados con ## @angularCLI
