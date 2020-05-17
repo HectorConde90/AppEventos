@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { EventosComponent } from '../eventos/eventos.component';
 
+
 @Component({
   selector: 'app-listaeventos',
   templateUrl: './listaeventos.component.html',
@@ -22,14 +23,14 @@ export class ListaeventosComponent implements OnInit {
     this.eliminarEvento = new EventEmitter();
     this.sumaParticipante = 0;
     this.participantesInscritos = {};
-  
+
 
   }
 
   ngOnInit(): void {
 
-    // Evento de fechas
     
+
 
   }
 
@@ -40,7 +41,7 @@ export class ListaeventosComponent implements OnInit {
   }
 
   modificarParticipante($event) {
-    
+
     const id = $event.target.dataset.id;
     this.modificar.emit(id);
     this.participantesInscritos = 0;
@@ -60,30 +61,28 @@ export class ListaeventosComponent implements OnInit {
 
     this.sumaParticipante = participantes + participantesActuales;
 
+
+    const tempParticipantes = $event.target.dataset.participantes;
+
     if (this.sumaParticipante > max) {
       alert('El max de participantes es ' + max);
     } else {
-      $event.target.dataset.participantes = participantesActuales += participantes;
+      let resta = (max - ($event.target.dataset.participantes = participantesActuales += participantes));
+      if (isNaN($event.target.dataset.participantes)) {
+        $event.target.dataset.participantes = tempParticipantes;
+
+      } else {
+        $event.target.placeholder = `Quedan ${resta} plazas.`;
+        this.participantesInscritos = { participantes: participantesActuales, id: id };
+        this.participantes.emit(this.participantesInscritos);
+      }
+
     }
+
     if (max == participantesActuales) {
       this.modificarParticipante($event);
     }
 
-    $event.target.placeholder = `Quedan ${max - participantesActuales} plazas.`
-    
-
-
-    this.participantesInscritos = { participantes: participantesActuales, id: id };
-    this.participantes.emit(this.participantesInscritos);
-
-    let verificar = max - participantesActuales;
-    
-    console.log(typeof verificar.toString());
-    if(isNaN(verificar)) {
-      verificar = 0;
-      $event.target.placeholder = `Quedan ${max - verificar} plazas.`;
-
-    }
     $event.target.value = '';
   }
 }

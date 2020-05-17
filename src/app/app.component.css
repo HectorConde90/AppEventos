@@ -1,0 +1,27 @@
+.display{
+     margin-left: -250px;  
+}
+
+.display-on{
+     margin-left: 0px; 
+    z-index: 2;
+}
+
+.nuevo-evento{
+    transition: 1s;
+    animation: linear;
+    z-index: 2;
+    position: absolute;
+    background-color: rgba(36, 34, 34, 0.945);
+    border-radius: 10px;
+    color: goldenrod;
+    
+}
+
+.nuevo{
+    cursor: pointer;
+    color: whitesmoke;
+    margin-left: 0px;
+}
+
+

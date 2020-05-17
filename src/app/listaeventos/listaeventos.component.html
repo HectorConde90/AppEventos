@@ -16,14 +16,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr  *ngFor="let evento of listaEventos" [ngClass]="{'table-success': evento.activo, 'table-danger': evento.completo, 'desactivado': !evento.activo,'table-warning': !evento.activo, 'completo': evento.completo}">
+                <tr  *ngFor="let evento of listaEventos" [ngClass]="{'table-success': evento.activo, 'table-danger': evento.completo, 'desactivado': !evento.activo,'table-warning': !evento.activo, 'completo': evento.completo, 'tabla-general': true}">
                     
                     <td>{{evento.titulo}}</td>
                     <td>{{evento.inicio}} {{evento.hora}}</td>
                     <td>{{evento.facilitador}}</td>
                     <td class="align">{{evento.participantes}}</td>
                     <td role="button" type="button"  data-toggle="modal" data-target="#exampleModal">Más info</td>
-                    <td><input  [attr.data-id]="evento.id" placeholder="Quedan {{evento.max}} plazas"  (blur)="agregarParticipante($event)" [attr.data-max]="evento.max" [attr.data-participantes]="evento.participantes" type="number"></td>
+                    <td><input  [attr.data-id]="evento.id" placeholder="Quedan {{evento.max}} plazas"  (blur)="agregarParticipante($event)" [attr.data-max]="evento.max" [attr.data-participantes]="evento.participantes" type="text"></td>
                     <td><button (click)="borrarEvento($event)" [attr.data-id]="evento.id" class="btn btn-outline-danger">Borrar</button></td>
                     
                 </tr>

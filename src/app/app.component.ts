@@ -7,78 +7,46 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
  
-
+  
   arrEventos: any[];
   idEventos: number;
   nuevoEvento: any;
+  display: boolean;
+
+
+
 
   constructor() {
 
-    this.idEventos = 4;
+    this.idEventos = 1;
     this.nuevoEvento = {};
+    this.display = true;
 
-    this.arrEventos = [
-      {
-        id: 1,
-        titulo: 'Aprender Angular 9',
-        inicio: '22/10/2020',
-        fin: '2020-4-24',
-        hora: '20:00',
-        facilitador: 'Marc',
-        email: 'marc@eventos.com',
-        max: 20,
-        descripcion: 'Clases de angular 9',
-        activo: true,
-        completo: false,
-        participantes: 0,
 
-      },
-      {
-        id: 2,
-        titulo: 'C# desde 0 ',
-        inicio: '12/8/2020',
-        fin: '2020-12-2',
-        hora: '19:30',
-        facilitador: 'Sandra',
-        email: 'sandra@eventos.com',
-        max: 15,
-        descripcion: 'Aprende c# de 0 hasta nivel pro.',
-        activo: true,
-        completo: false,
-        participantes: 0,
-
-      },
-      {
-        id: 3,
-        titulo: 'Ciber seguridad ',
-        inicio: '10/10/2020',
-        fin: '2020-8-15',
-        hora: '20:30',
-        facilitador: 'Ramón',
-        email: 'ramon@eventos.com',
-        max: 18,
-        descripcion: 'Combiertete en un hacker de la ciberseguridad.',
-        activo: true,
-        completo: false,
-        participantes: 0,
-
-      },
-    ];
+    this.arrEventos = [{}];
   }
 
 
   ngOnInit(): void {
+    
+    this.arrEventos = JSON.parse(localStorage.getItem('eventos'));
+    
+    
     let today = new Date();
     // Evento de fechas
     for (let evento of this.arrEventos) {
       let fecha = new Date(evento.fin);
-      if (fecha < today) {
+      if (fecha > today) {
         evento.activo = false;
       }
     }
+    this.idEventos = this.arrEventos.length;
+    
+    console.log(this.arrEventos)
+    
 
   }
-
+ 
 
 
 
@@ -86,6 +54,7 @@ export class AppComponent {
     const index = this.arrEventos.findIndex(evento => evento.id === parseInt($event));
 
     this.arrEventos.splice(index, 1)
+    localStorage.setItem('eventos', JSON.stringify(this.arrEventos));
   }
 
 
@@ -96,6 +65,8 @@ export class AppComponent {
     this.arrEventos.push(this.nuevoEvento);
     this.idEventos++;
 
+    localStorage.setItem('eventos', JSON.stringify(this.arrEventos));
+
   }
 
   modificar($event) {
@@ -103,6 +74,7 @@ export class AppComponent {
     const index = this.arrEventos.findIndex(evento => evento.id === parseInt($event));
     // console.log(index);
     this.arrEventos[index].completo = true;
+    localStorage.setItem('eventos', JSON.stringify(this.arrEventos));
     // console.log(this.arrEventos);
     
   }
@@ -111,5 +83,13 @@ export class AppComponent {
     const index = this.arrEventos.findIndex(evento => evento.id === parseInt($event.id));
     this.arrEventos[index].participantes = parseInt($event.participantes);
     // console.log(this.arrEventos);
+    localStorage.setItem('eventos', JSON.stringify(this.arrEventos));
+  }
+
+
+  // Funcion para quitar y poner la parte de los imputs
+  displayOn() {
+    this.display = !this.display;
+
   }
 }

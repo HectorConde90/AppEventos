@@ -21,3 +21,11 @@
 .align{
     text-align: center;
 }
+
+.tabla-general{
+    color: rgb(66, 66, 66);
+}
+
+.tabla-general:hover{
+    color: black !important   ;
+}

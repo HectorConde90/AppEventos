@@ -1,15 +1,35 @@
-<div class="mt-5 container">
+
+
+<nav class="navbar navegador bg-dark navbar-dark ">
+  <a  class="ml-3 nuevo navbar-brand " (click)="displayOn()">NUEVO EVENTO</a>
+</nav>
+
+
+
+
+<!--Contenedor principal-->
+<div class="mt-5 container-fluid">
   <div class="row">
-    <div class="col-12 d-flex justify-content-center border-bottom">
-      <h1>GESTIÓN DE EVENTOS</h1>
-    </div>
+    
     <div class="row">
       <div class="col-12  mt-3">
-        <h2 class="ml-3">NUEVO EVENTO</h2>
-        </div>
+        
+          <div [ngClass]="{'display': display, 'display-on': !display, 'nuevo-evento': true}" >
+            <div class="container-fluid">
+              <div  [ngClass]="{'display': display, 'display-on': !display, 'nuevo-evento': true, 'row': true}">
+                <div class="col-2 ">
+                  <app-eventos (enviarEvento)="agregarEvento($event)" ></app-eventos>
+                </div>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+      </div>
     </div>
     <!-- INPUTS-->
-    <app-eventos (enviarEvento)="agregarEvento($event)" ></app-eventos>
+    
     <!--Fin Inputs-->
     <!--Lista eventos-->
     

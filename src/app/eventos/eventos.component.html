@@ -2,44 +2,44 @@
     <div class="row border-bottom pb-3">
         <div class="col-12 col-md-8">
             <div class="row">
-                <div class="col-md-4 mt-1">
-                    <label for="">Título:</label>
-                    <input [(ngModel)]="titulo" type="text">
+                <div class="col-md-12 mt-1 ">
+                    <label class="etiqueta esteinput" for="">Título</label>
+                    <input class="input"  [(ngModel)]="titulo" type="text">
                 </div>
-                <div class="col-md-4 mt-1">
-                    <label for="">Fecha inicio</label>
-                    <input [(ngModel)]="inicio" type="text">
+                <div class="col-md-12 mt-1">
+                    <label class="etiqueta" for="">Inicio</label>
+                    <input class="input date" placeholder="" [(ngModel)]="inicio" type="date">
                 </div>
-                <div class="col-md-4 mt-1">
-                    <label for="">Fecha fin:</label>
-                    <input [(ngModel)]="fin" type="text">
+                <div class="col-md-12 mt-1">
+                    <label class="etiqueta" for="">Fin</label>
+                    <input class="input" placeholder="" [(ngModel)]="fin" type="date">
                 </div>
-                <div class="col-md-4 mt-1">
+                <div class="col-md-12 mt-1">
                     <label for="">Facilitador:</label>
-                    <input [(ngModel)]="facilitador" type="text">
+                    <input class="input" placeholder="" [(ngModel)]="facilitador" type="text">
                 </div>
-                <div class="col-md-4 mt-1">
+                <div class="col-md-12 mt-1">
                     <label for="">Eamil facilitador:</label>
-                    <input [(ngModel)]="email" type="email">
+                    <input class="input" placeholder="" [(ngModel)]="email" type="email">
                 </div>
-                <div class="col-md-2 mt-1">
+                <div class="col-md-12 mt-1">
                     <label class="label" for="">Hora:</label>
-                    <input class="hora" [(ngModel)]="hora" type="text">
+                    <input  class="hora input " placeholder="" [(ngModel)]="hora" type="time">
                 </div>
-                <div class="col-md-2 mt-1">
+                <div class="col-md-12 mt-1">
                     <label class="label" for="">Participantes:</label>
-                    <input class="hora" [(ngModel)]="max" type="number">
+                    <input  class="hora input" placeholder="" [(ngModel)]="max" type="number">
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-12">
             <div class="row">
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-md-12">
                     <label for="">Descripción:</label>
-                    <textarea [(ngModel)]="descripcion" class="area" placeholder="Escribe la descripción.."></textarea>
+                    <textarea  [(ngModel)]="descripcion" class="area descripcion" placeholder="Escribe la descripción.."></textarea>
                 </div>
-                <div class="col-12 col-md-4 align-self-end">
-                    <button class="btn btn-outline-success" (click)="agregarEvento()">Enviar</button>
+                <div class="col-12 col-md-12 ">
+                    <button class="btn btn-outline-golden" (click)="agregarEvento()">Enviar</button>
                 </div>
             </div>
         </div>
